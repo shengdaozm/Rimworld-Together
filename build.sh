@@ -22,6 +22,7 @@ echo "=== Deploying DLLs ==="
 cp -f "$ROOT/Source/RTShared/bin/Debug/netstandard2.0/RTShared.dll" \
       "$ROOT/Source/RTNetwork/bin/Debug/netstandard2.0/RTNetwork.dll" \
       "$ROOT/Source/RTClient/bin/Debug/net48/RTClient.dll" \
+      "$ROOT/Source/RTShared/bin/Debug/netstandard2.0/Newtonsoft.Json.dll" \
       "$ROOT/Source/Assemblies/"
 
 for ver in 1.5 1.6; do
