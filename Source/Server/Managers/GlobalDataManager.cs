@@ -26,6 +26,10 @@ namespace GameServer.Managers
             globalData.ModConfigs = Master.ModConfig.ModConfigs;
             globalData.EventValues = PM_Events.LoadedEvents;
 
+            globalData.TimeSpeed = Master.GlobalTimeSpeed;
+            globalData.IsPaused = Master.GlobalTimePaused;
+            globalData.ServerTick = Master.GlobalServerTick;
+
             if (Master.WorldValues != null)
             {
                 globalData.Roads = Master.WorldValues.Roads;

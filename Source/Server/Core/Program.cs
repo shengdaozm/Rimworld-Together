@@ -40,6 +40,7 @@ namespace GameServer.Core
             ServerNetwork.StartFeature();
             Task.Run(BackupManager.StartFeature);
             Task.Run(ServerBrowserManager.StartFeature);
+            Task.Run(TickManager.StartHeartbeat);
 
             while (true) CMD_Base.ListenForCommands();
         }
@@ -58,6 +59,7 @@ namespace GameServer.Core
             FL_ChatConfig.SavePath = Path.Combine(Master.ConfigsPath, "ChatConfig.json");
             FL_Leaderboard.SavePath = Path.Combine(Master.AssetsPath, "Leaderboard.json");
             FL_Guild.SavePath = Path.Combine(Master.GuildsPath);
+            FL_GameTime.SavePath = Path.Combine(Master.AssetsPath, "GameTime.json");
 
             //Find a way to move these two to another place or merge with the above
             CommonValues.ServerUsersPath = Master.UsersPath;
@@ -122,6 +124,17 @@ namespace GameServer.Core
             // Don't automatically save this one
             // We require this file to be saved after a client upload
             Master.WorldValues = (FL_PlanetConfig)FL_PlanetConfig.Load<FL_PlanetConfig>(FL_PlanetConfig.SavePath, false);
+
+            // Load time synchronization state
+            FL_GameTime savedTime = (FL_GameTime)FL_GameTime.Load<FL_GameTime>(FL_GameTime.SavePath);
+            if (savedTime != null)
+            {
+                Master.GlobalTimeSpeed = savedTime.TimeSpeed;
+                Master.GlobalTimePaused = savedTime.IsPaused;
+                Master.GlobalTimePausedBy = savedTime.PausedBy;
+                Master.GlobalServerTick = savedTime.ServerTick;
+            }
+            Master.TickBaseTimestamp = DateTime.UtcNow.Ticks;
         }
     }
 }

@@ -64,5 +64,18 @@ namespace GameServer.Core
         public static FL_ChatConfig ChatConfig { get; set; } = null;
 
         public static FL_Leaderboard LeaderboardFile { get; set; } = null;
+
+        // Time synchronization
+        public static float GlobalTimeSpeed { get; set; } = 1.0f;
+
+        public static bool GlobalTimePaused { get; set; } = false;
+
+        public static string GlobalTimePausedBy { get; set; } = null;
+
+        public static long GlobalServerTick { get; set; } = 0L;
+
+        public static long TickBaseTimestamp { get; set; }
+
+        public static int TickHeartbeatIntervalMs { get; set; } = 5000;
     }
 }

@@ -410,6 +410,12 @@ Source/.vscode/*.*
 [Cc]lient/
 [Tt]emp/
 
+# Decompiled DLL source (assemblies are the build artifacts)
+Source/RTShared/
+Source/RTNetwork/
+Source/RTClient/
+Source/DLLs/
+
 # Rimworld specific exclusions
 1.5/Assemblies
 1.6/Assemblies
