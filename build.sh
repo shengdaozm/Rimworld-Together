@@ -7,8 +7,8 @@ dotnet build "$ROOT/Source/RTShared/RTShared.csproj" > /dev/null
 echo "=== Building RTNetwork ==="
 dotnet build "$ROOT/Source/RTNetwork/RTNetwork.csproj" > /dev/null
 
-cp -f "$ROOT/Source/RTShared/bin/Debug/netstandard2.0/RTShared.dll" \
-      "$ROOT/Source/RTNetwork/bin/Debug/netstandard2.0/RTNetwork.dll" \
+cp -f "$ROOT/Source/RTShared/bin/Debug/net472/RTShared.dll" \
+      "$ROOT/Source/RTNetwork/bin/Debug/net472/RTNetwork.dll" \
       "$ROOT/Source/Assemblies/"
 
 echo "=== Building Server ==="
@@ -19,10 +19,10 @@ echo "=== Building RTClient ==="
 dotnet build "$ROOT/Source/RTClient/RTClient.csproj" > /dev/null
 
 echo "=== Deploying DLLs ==="
-cp -f "$ROOT/Source/RTShared/bin/Debug/netstandard2.0/RTShared.dll" \
-      "$ROOT/Source/RTNetwork/bin/Debug/netstandard2.0/RTNetwork.dll" \
+cp -f "$ROOT/Source/RTShared/bin/Debug/net472/RTShared.dll" \
+      "$ROOT/Source/RTNetwork/bin/Debug/net472/RTNetwork.dll" \
       "$ROOT/Source/RTClient/bin/Debug/net48/RTClient.dll" \
-      "$ROOT/Source/RTShared/bin/Debug/netstandard2.0/Newtonsoft.Json.dll" \
+      "$ROOT/Source/RTShared/bin/Debug/net472/Newtonsoft.Json.dll" \
       "$ROOT/Source/Assemblies/"
 
 for ver in 1.5 1.6; do
