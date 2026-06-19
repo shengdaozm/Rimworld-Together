@@ -24,12 +24,19 @@ cp -f "$ROOT/Source/RTShared/bin/Debug/netstandard2.0/RTShared.dll" \
       "$ROOT/Source/RTClient/bin/Debug/net48/RTClient.dll" \
       "$ROOT/Source/Assemblies/"
 
+if [ -f "$ROOT/Source/DLLs/Newtonsoft.Json.dll" ]; then
+    cp -f "$ROOT/Source/DLLs/Newtonsoft.Json.dll" "$ROOT/Source/Assemblies/"
+fi
+if [ -f "$HOME/.nuget/packages/messagepack/3.1.7/lib/net472/MessagePack.dll" ]; then
+    cp -f "$HOME/.nuget/packages/messagepack/3.1.7/lib/net472/MessagePack.dll" "$ROOT/Source/Assemblies/"
+fi
+if [ -f "$ROOT/Source/DLLs/DiscordRPC.dll" ]; then
+    cp -f "$ROOT/Source/DLLs/DiscordRPC.dll" "$ROOT/Source/Assemblies/"
+fi
+
 for ver in 1.5 1.6; do
     mkdir -p "$ROOT/$ver/Assemblies"
-    cp -f "$ROOT/Source/Assemblies/RTShared.dll" \
-          "$ROOT/Source/Assemblies/RTNetwork.dll" \
-          "$ROOT/Source/Assemblies/RTClient.dll" \
-          "$ROOT/$ver/Assemblies/"
+    cp -f "$ROOT/Source/Assemblies/"*.dll "$ROOT/$ver/Assemblies/"
 done
 
 echo "=== Done ==="
