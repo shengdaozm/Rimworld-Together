@@ -27,8 +27,8 @@ cp -f "$ROOT/Source/RTShared/bin/Debug/netstandard2.0/RTShared.dll" \
 if [ -f "$ROOT/Source/DLLs/Newtonsoft.Json.dll" ]; then
     cp -f "$ROOT/Source/DLLs/Newtonsoft.Json.dll" "$ROOT/Source/Assemblies/"
 fi
-if [ -f "$HOME/.nuget/packages/messagepack/3.1.7/lib/net472/MessagePack.dll" ]; then
-    cp -f "$HOME/.nuget/packages/messagepack/3.1.7/lib/net472/MessagePack.dll" "$ROOT/Source/Assemblies/"
+if [ -f "$HOME/.nuget/packages/messagepack/2.5.192/lib/netstandard2.0/MessagePack.dll" ]; then
+    cp -f "$HOME/.nuget/packages/messagepack/2.5.192/lib/netstandard2.0/MessagePack.dll" "$ROOT/Source/Assemblies/"
 fi
 if [ -f "$ROOT/Source/DLLs/DiscordRPC.dll" ]; then
     cp -f "$ROOT/Source/DLLs/DiscordRPC.dll" "$ROOT/Source/Assemblies/"
